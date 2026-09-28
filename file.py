@@ -9,10 +9,26 @@ Key dibuat acak (secrets / CSPRNG) dengan panjang sama dengan plaintext.
 import secrets
 import string
 
+MATKUL_NAME = "KRIPTOGRAFI"
+GROUP_MEMBERS = [
+    "Delvina Salma Hidayah - 237006103",
+    "Sherly Nandia Mathovani - 237006167"
+]
+
 ALPHA = string.ascii_uppercase                       # A-Z (26)
 ASCII = "".join(chr(i) for i in range(32, 127))      # printable ASCII (95)
 
 ALPHABETS = {"1": ALPHA, "2": ASCII}
+
+def print_group_information():
+
+    print(f"Nama Matakuliah : {MATKUL_NAME}")
+    print("Anggota:")
+
+    for member in GROUP_MEMBERS:
+        print(f"- {member}")
+
+    print()
 
 
 def generate_key(length: int, alphabet: str) -> str:
@@ -38,6 +54,8 @@ def decrypt(ciphertext: str, key: str, alphabet: str) -> str:
 
 def valid(text: str, alphabet: str) -> bool:
     return len(text) > 0 and all(ch in alphabet for ch in text)
+
+
 
 
 def choose_mode() -> str | None:
@@ -97,6 +115,7 @@ def do_decrypt() -> None:
 
 def main() -> None:
     while True:
+        print_group_information()
         print("\n===== ONE-TIME PAD (OTP) =====")
         print("1. Encrypt")
         print("2. Decrypt")
